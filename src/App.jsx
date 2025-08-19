@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const API_KEY = "d42f487f103ac07de71cd4390a51aceb";
+const BASE_URL = "https://backend-auth-tmfb.onrender.com";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -30,8 +31,8 @@ export default function App() {
   e.preventDefault();
 
   const endpoint = isLogin
-    ? "http://localhost:5000/api/auth/login"
-    : "http://localhost:5000/api/auth/signup";  // ✅ changed from /register to /signup
+    ? `${BASE_URL}/api/auth/login`
+    : `${BASE_URL}/api/auth/signup`;  // ✅ changed from /register to /signup
 
   try {
     const res = await fetch(endpoint, {
